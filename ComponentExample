@@ -1,0 +1,26 @@
+import React from 'react';
+import { withStyles, Theme } from '@material-ui/core'
+
+const styles = (theme: Theme) => ({
+
+});
+
+type ComponentProps = {
+  classes?: any
+}
+
+type ComponentState = {
+
+}
+
+export class ServiceBar extends React.Component<ComponentProps, ComponentState> {
+  render(){
+  return (
+    <div>
+      
+    </div>
+  );
+}
+}
+
+export default withStyles(styles)(ServiceBar as any);

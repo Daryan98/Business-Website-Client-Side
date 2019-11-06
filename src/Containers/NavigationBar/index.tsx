@@ -13,20 +13,23 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import CurrencySelector from '../../Components/Selelcts';
-
-
+// import CurrencySelector from '../../Components/Selelcts';
+import image from '../../Images/2.jpg';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
+      width: '100%',
+      height: '80vh',
+      background: `url(${image}) rgba(0,0,0,0.5)`,
+      backgroundSize: 'cover',
+      backgroundBlendMode: 'overlay',
+      position: 'relative',
+      color: '#FFFFFF',
     },
     menuButton: {
       marginRight: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
     },
     list: {
       width: 250,
@@ -34,6 +37,24 @@ const useStyles = makeStyles((theme: Theme) =>
     fullList: {
       width: 'auto',
     },
+    navItems: {
+      margin: '0 auto',
+    },
+    navbar: {
+      color: '#FFFFFF',
+      background: 'transparent',
+    },
+    toolBar: {
+      height: 100,
+    },
+    navbarRoot: {
+      boxShadow: '0px 5px 5px -6px rgba(0,0,0,0.2)',
+    },
+    message: {
+      position: 'absolute',
+      bottom: 50,
+      left: 30,
+    }
   }),
 );
 
@@ -77,8 +98,13 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
+      <AppBar 
+        classes={{
+          root: classes.navbarRoot,
+          colorPrimary: classes.navbar
+          }}>
+        <Toolbar 
+        classes={{root: classes.toolBar}}>
           <IconButton 
             edge="start" 
             className={classes.menuButton} 
@@ -88,13 +114,23 @@ export default function ButtonAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6">
             Shop
           </Typography>
-          <CurrencySelector withOutLabel={false}/>
+          <div className={classes.navItems}>
+            <Button color="inherit">Home</Button>
+            <Button color="inherit">Shop</Button>
+          </div>
+
+          {/* <CurrencySelector withOutLabel={false}/> */}
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
+
+      <div className={classes.message}>
+          <h1>Welcome to My Shop</h1>
+          <span>my message</span>
+      </div>
 
       <Drawer 
         open={state.openDrewer} 

@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
-import NavigationBar from '../NavigationBar';
+import Home from '../Home';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 export class APP extends Component<{}, {}> {
   render() {
-    return <React.Fragment><NavigationBar/></React.Fragment>
-  }
+    return(
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    )};
 } 
 
 export default APP;
